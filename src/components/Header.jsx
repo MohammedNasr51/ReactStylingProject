@@ -1,13 +1,59 @@
 import logo from '../assets/logo.png';
 import classes from '../components/header.module.css'
+import styled from 'styled-components';
 // the module makes me import a javaScript object and access the classes from this object as properties then this class will be unique to this component by renaming the class in the dom when rendered to the browser so that it doesn't conflict with other classes in the global scope this mains my css now is scoped to this component only
+
+const StyledHeader = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  
+  & img {
+    object-fit: contain;
+    margin-bottom: 2rem;
+    width: 11rem;
+    height: 11rem;
+  }
+
+  & h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #9a3412;
+    font-family: 'Pacifico', cursive;
+    margin: 0;
+}
+
+  & p {
+    text-align: center;
+    color: #a39191;
+    margin: 0;
+}
+
+  @media (min-width: 768px) {
+
+    margin-bottom: 4rem;
+
+    & h1 {
+      font-size: 2.25rem;
+    }
+}
+
+`
+
 
 export default function Header() {
   return (
-    <header>
+    <StyledHeader>
       <img src={logo} alt="A canvas" />
       <h1>ReactArt</h1>
-      <p className={classes.paragraph}>A community of artists and art-lovers.</p>
-    </header>
+      <p>A community of artists and art-lovers.</p>
+    </StyledHeader>
   );
 }
